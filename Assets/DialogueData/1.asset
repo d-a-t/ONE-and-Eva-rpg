@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - '*This lab seems dark and dangerous.* '
-  - "*There\u2019s broken glass and robots guarding the halls. It seems that ONE
-    is not much of a talker as the two walk in silence* \r"
+  - "*There\u2019s broken glass and robots guarding the halls.*"
+  - "*It seems that ONE is not much of a talker as the two walk in silence* \r"
   responses: []

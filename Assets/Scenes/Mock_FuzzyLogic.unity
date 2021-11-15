@@ -469,7 +469,16 @@ MonoBehaviour:
     character: {fileID: 11400000, guid: 231bb739b751d724d9a189c3124642db, type: 2}
     background: {fileID: 11400000, guid: 11a6661644094ac42a4f68be98e112cf, type: 2}
   - testDialogue: {fileID: 11400000, guid: 958f58dc06b04224aaa2a9cba43ba4f1, type: 2}
-    character: {fileID: 11400000, guid: b07548974fc5ee94eb69dcf21f35e580, type: 2}
+    character: {fileID: 11400000, guid: 56ed1c19a75ff60479421db82e6f455f, type: 2}
+    background: {fileID: 11400000, guid: 11a6661644094ac42a4f68be98e112cf, type: 2}
+  - testDialogue: {fileID: 11400000, guid: cf03fe56333f40146bf094ec672d4e1e, type: 2}
+    character: {fileID: 11400000, guid: 078240c59df975c4c9a091642b54c593, type: 2}
+    background: {fileID: 11400000, guid: 11a6661644094ac42a4f68be98e112cf, type: 2}
+  - testDialogue: {fileID: 11400000, guid: 6f973d0a031e33143b9203db60dae910, type: 2}
+    character: {fileID: 11400000, guid: 56ed1c19a75ff60479421db82e6f455f, type: 2}
+    background: {fileID: 11400000, guid: 11a6661644094ac42a4f68be98e112cf, type: 2}
+  - testDialogue: {fileID: 11400000, guid: 95febed6d0768e8498c6f4ec3e9319a0, type: 2}
+    character: {fileID: 11400000, guid: b3057ec7b4a9118408819dde4f03fffb, type: 2}
     background: {fileID: 11400000, guid: 11a6661644094ac42a4f68be98e112cf, type: 2}
   fuzzyLogic: {fileID: 1338447627}
   ending: {fileID: 0}
