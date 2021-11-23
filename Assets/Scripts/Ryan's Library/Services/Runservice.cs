@@ -62,6 +62,13 @@ public sealed class Runservice : Singleton {
 		return self;
 	}
 
+	private static Listener<float> BindToEither(int priority, Action func, List<Tuple<int, List<Listener<float>>>> funcList) {
+		return BindToEither(priority, (float dt) => {
+			func();
+			return true;
+		}, funcList);
+	}
+
 	/// <summary>
 	/// Binds a function to run after Camera renders. Check priority list in Global.cs to see priorities.
 	/// </summary>

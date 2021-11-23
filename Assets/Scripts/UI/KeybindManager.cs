@@ -52,6 +52,8 @@ public class KeybindManager : MonoBehaviour
 
         BindKey("ATTACK", PlayerPrefs.GetString("ATTACK", "Space"));
         BindKey("SHOOT", PlayerPrefs.GetString("DOWN", "Mouse0"));
+
+        BindKey("RUN", PlayerPrefs.GetString("RUN", "LeftShift"));
     }
 
     public void BindKey(string key, string keyBind) {

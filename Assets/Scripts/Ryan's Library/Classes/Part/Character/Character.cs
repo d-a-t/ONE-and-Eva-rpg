@@ -28,6 +28,14 @@ public class Character : Part, IControllable {
 		ControlMaid.DoCleaning();
 	}
 
+	public void TakeDamage(float val) {
+		if (val > 0) {
+			Health.Value -= val;
+		} else {
+			Debug.LogWarning("Cannot take negative damage.");
+		}
+	}
+
 	public override void Awake() {
 		base.Awake();
 		MaxHealth = Health.Value;

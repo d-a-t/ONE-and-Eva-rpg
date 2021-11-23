@@ -77,7 +77,9 @@ public class KeyBindUpdater : MonoBehaviour {
 		if (!PlayerPrefs.HasKey("ATTACK")) {
 			PlayerPrefs.SetString("ATTACK", "Space");
 		}
-
+		if (!PlayerPrefs.HasKey("RUN")) {
+			PlayerPrefs.SetString("RUN", "LeftShift");
+		}
 
 		UP.text = PlayerPrefs.GetString("UP", "W");
 		LEFT.text = PlayerPrefs.GetString("LEFT", "A");

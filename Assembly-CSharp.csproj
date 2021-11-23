@@ -81,6 +81,9 @@
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\GUI\Textbox.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Utils\AnyUtil.cs" />
      <Compile Include="Assets\Scripts\UI\KeybindManager.cs" />
+     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\Walkable.cs" />
+     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\Humanoid.cs" />
+     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\NPCAgent.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Program Files/Unity/2021.1.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

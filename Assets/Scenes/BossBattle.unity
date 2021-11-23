@@ -25727,7 +25727,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9064706667322557007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ec753beea7675445b62de66435500e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bef61fe4662e38488fa4cac576acfdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Model: {fileID: 0}
@@ -25737,7 +25737,7 @@ MonoBehaviour:
     _Value: 1
     Locked: 0
   PhysicsLayer:
-    _Value: 0
+    _Value: 8
     Locked: 0
   Animator: {fileID: 4894572361873630223}
   Health:
@@ -25745,10 +25745,10 @@ MonoBehaviour:
     Locked: 0
   MaxHealth: 0
   Healthbar: {fileID: 1107424981}
-  moveSpeed: 20
-  CurrentTool: {fileID: 1695924442}
-  ToolDistanceRadius: 1.5
-  TargetPosition: {x: 0, y: 0}
+  WalkSpeed: 5
+  RunSpeed: 10
+  JumpPower: 10
+  WalkDirection: {x: 0, y: 0}
 --- !u!114 &9064706667322557009
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -42,7 +42,6 @@ public class Projectile : Part {
 
 	public List<Collider2D> IgnoreColliders = new List<Collider2D>();
 
-
 	protected internal Vector2 lastPos;
 
 	/// <summary>
@@ -63,7 +62,6 @@ public class Projectile : Part {
 
 		self.Direction = direction.normalized;
 		self.origin = pos;
-
 
 		self.Maid.GiveTask(self.gameObject);
 
