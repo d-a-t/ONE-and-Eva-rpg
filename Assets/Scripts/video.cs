@@ -7,7 +7,7 @@ public class video : MonoBehaviour {
 	private float counter = 0;
 	void Update() {
 		counter += Time.deltaTime;
-		if (counter > 10) {
+		if (counter > 95) {
 			SceneManager.LoadScene("TitleScreen");
 		}
 	}
