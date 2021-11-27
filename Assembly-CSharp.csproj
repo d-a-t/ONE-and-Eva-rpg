@@ -44,6 +44,7 @@
      <Compile Include="Assets\Scripts\video.cs" />
      <Compile Include="Assets\Scripts\Boss\BossBattle.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\ScreenGUI\Derived\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\NPCAgent.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Serializables\SerializeProperty.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\LaserGun.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\ComponentGrouper.cs" />
@@ -60,6 +61,7 @@
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Tool.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\Boss.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Controllers\CameraController.cs" />
+     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\Humanoid.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\ScreenGUI\ScreenGUI.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Projectile.cs" />
      <Compile Include="Assets\Scripts\HealthSystem\HealthSystem.cs" />
@@ -75,15 +77,13 @@
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Settings\Global.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Menu.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Settings\Config.cs" />
+     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\Walkable.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\Player.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\KeyBindUpdater.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Serializables\SerializableDict.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\GUI\Textbox.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Utils\AnyUtil.cs" />
      <Compile Include="Assets\Scripts\UI\KeybindManager.cs" />
-     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\Walkable.cs" />
-     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\Humanoid.cs" />
-     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\NPCAgent.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Program Files/Unity/2021.1.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -804,8 +804,11 @@
     <Reference Include="Unity.2D.Common.Runtime">
         <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Editor">
-        <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+    <Reference Include="NavMeshComponentsEditor">
+        <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/NavMeshComponentsEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NavMeshComponents">
+        <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/NavMeshComponents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
         <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
@@ -815,6 +818,9 @@
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
         <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Editor">
+        <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>

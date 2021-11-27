@@ -798,8 +798,11 @@
     <Reference Include="Unity.2D.Common.Runtime">
         <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Editor">
-        <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+    <Reference Include="NavMeshComponentsEditor">
+        <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/NavMeshComponentsEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NavMeshComponents">
+        <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/NavMeshComponents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
         <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
@@ -809,6 +812,9 @@
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
         <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Editor">
+        <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>E:/GameStuff/Game Design Unity/Projects/ONE and Eva rpg/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
