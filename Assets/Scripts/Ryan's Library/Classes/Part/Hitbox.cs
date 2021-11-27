@@ -31,7 +31,7 @@ public class Hitbox : Part {
 		}
 	}
 
-    public static Hitbox Create(Vector2 size, CFrame cframe, int layer) {
+	public static Hitbox Create(Vector2 size, CFrame cframe, int layer) {
 		Part temp = Part.Create(cframe);
 		temp.gameObject.SetActive(false);
 		temp.gameObject.layer = layer;
@@ -46,6 +46,19 @@ public class Hitbox : Part {
 		self.Collider = collider;
 
 		temp.gameObject.SetActive(true);
+
+		self.CFrame = cframe;
+
+		return self;
+	}
+
+    public static Hitbox CreateEmpty(CFrame cframe, int layer) {
+		Part temp = Part.Create(cframe);
+		temp.gameObject.SetActive(false);
+		temp.gameObject.layer = layer;
+		temp.PhysicsLayer.Value = layer;
+
+		Hitbox self = temp.gameObject.AddComponent<Hitbox>();
 
 		self.CFrame = cframe;
 
