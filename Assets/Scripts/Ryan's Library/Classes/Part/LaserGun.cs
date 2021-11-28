@@ -29,7 +29,7 @@ public class LaserGun : Tool {
 			CooldownTimer = 0;
 
 			WarningSprite.enabled = true;
-
+			Debug.Log("ok");
 			SoundController.PlayClipAtPoint("Lasercharge", transform.position);
 
 			Listener<float> flashingRedWarning = Runservice.RunEvery(Global.RunservicePriority.Heartbeat.Physics, .1F,
@@ -101,8 +101,13 @@ public class LaserGun : Tool {
 	}
 
 	public override void Start() {
+		base.Start();
+
 		LaserRenderer.enabled = false;
 		LaserHitbox.Enabled = false;
+		Runservice.RunAfter(Global.RunservicePriority.Heartbeat.Physics, .1F, delegate {
+			WarningSprite.enabled = false;
+		});
 
 		Maid.GiveTask(LaserMaid);
 	}

@@ -856,6 +856,7 @@ MonoBehaviour:
   RPM: 150
   Speed: 60
   BulletType: 1
+  Owner: {fileID: 0}
   Damage: 10
   Firepoint: {fileID: 216450331}
 --- !u!1 &313909006
@@ -1259,6 +1260,7 @@ MonoBehaviour:
   RPM: 450
   Speed: 15
   BulletType: 1
+  Owner: {fileID: 0}
   Damage: 10
   Firepoint: {fileID: 313909007}
 --- !u!1 &355962977
@@ -2682,6 +2684,7 @@ MonoBehaviour:
   RPM: 450
   Speed: 15
   BulletType: 1
+  Owner: {fileID: 0}
   Damage: 10
   Firepoint: {fileID: 852321044}
 --- !u!1 &634336035
@@ -2859,6 +2862,7 @@ MonoBehaviour:
   RPM: 450
   Speed: 15
   BulletType: 1
+  Owner: {fileID: 0}
   Damage: 5
   Firepoint: {fileID: 1072683502}
 --- !u!4 &638607981
@@ -3178,6 +3182,7 @@ MonoBehaviour:
   RPM: 400
   Speed: 15
   BulletType: 1
+  Owner: {fileID: 0}
   Damage: 10
   Firepoint: {fileID: 164008921}
 --- !u!1 &757818437
@@ -3490,6 +3495,7 @@ MonoBehaviour:
   RPM: 350
   Speed: 15
   BulletType: 1
+  Owner: {fileID: 0}
   Damage: 10
   Firepoint: {fileID: 1551956898}
 --- !u!1 &796782559
@@ -3924,6 +3930,7 @@ MonoBehaviour:
   RPM: 60
   Speed: 30
   BulletType: 2
+  Owner: {fileID: 0}
   Damage: 40
   Firepoint: {fileID: 185744572}
 --- !u!4 &870187437
@@ -4345,6 +4352,7 @@ MonoBehaviour:
   RPM: 400
   Speed: 15
   BulletType: 1
+  Owner: {fileID: 0}
   Damage: 10
   Firepoint: {fileID: 118407413}
 --- !u!1 &1041360043
@@ -4521,7 +4529,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -6984,6 +6992,7 @@ MonoBehaviour:
   RPM: 400
   Speed: 15
   BulletType: 1
+  Owner: {fileID: 0}
   Damage: 5
   Firepoint: {fileID: 912892877}
 --- !u!1 &1208086376
@@ -21861,6 +21870,7 @@ MonoBehaviour:
   RPM: 450
   Speed: 15
   BulletType: 1
+  Owner: {fileID: 0}
   Damage: 10
   Firepoint: {fileID: 978840097}
 --- !u!1 &1300128247
@@ -22067,6 +22077,7 @@ MonoBehaviour:
   RPM: 350
   Speed: 15
   BulletType: 1
+  Owner: {fileID: 0}
   Damage: 5
   Firepoint: {fileID: 170608880}
 --- !u!1 &1348462237
@@ -22462,6 +22473,7 @@ MonoBehaviour:
   RPM: 350
   Speed: 15
   BulletType: 1
+  Owner: {fileID: 0}
   Damage: 10
   Firepoint: {fileID: 2008865170}
 --- !u!1 &1414859929
@@ -22835,6 +22847,7 @@ MonoBehaviour:
   RPM: 60
   Speed: 30
   BulletType: 2
+  Owner: {fileID: 0}
   Damage: 40
   Firepoint: {fileID: 452610145}
 --- !u!1 &1540229860
@@ -23350,6 +23363,7 @@ MonoBehaviour:
   RPM: 400
   Speed: 60
   BulletType: 1
+  Owner: {fileID: 0}
   Damage: 1
   Firepoint: {fileID: 1571524990}
 --- !u!4 &1695924443
@@ -24491,6 +24505,7 @@ MonoBehaviour:
   RPM: 450
   Speed: 15
   BulletType: 1
+  Owner: {fileID: 0}
   Damage: 10
   Firepoint: {fileID: 1414859930}
 --- !u!1 &1858711471
@@ -25462,6 +25477,7 @@ MonoBehaviour:
     Locked: 0
   MaxHealth: 0
   Healthbar: {fileID: 836412640}
+  IsPlayer: 1
   CurrentStage: 0
   Target: {fileID: 0}
   GunTurret: {fileID: 281194470}
@@ -25745,6 +25761,7 @@ MonoBehaviour:
     Locked: 0
   MaxHealth: 0
   Healthbar: {fileID: 1107424981}
+  IsPlayer: 1
   WalkSpeed: 5
   RunSpeed: 10
   JumpPower: 10
@@ -25769,4 +25786,3 @@ MonoBehaviour:
   attackRange: 2
   attackDamage: 15
   attackRate: 2
-  bossHealth: {fileID: 0}
