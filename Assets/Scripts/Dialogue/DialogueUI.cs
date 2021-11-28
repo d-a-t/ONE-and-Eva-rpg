@@ -20,13 +20,12 @@ public class DialogueUI : MonoBehaviour
     // for the endings of the game
     [Header("EndingSettings")]
     public GameObject fuzzyLogic;
-    [SerializeField] private DialogueObject ending;
-    [SerializeField] private DialogueObject good_ending;
-    [SerializeField] private DialogueObject death;
-    public Background ending_I;
-    public Background good_ending_I;
-    public Background death_I;
+    [SerializeField] private DialogueObject[] good_ending;
+    [SerializeField] private DialogueObject[] bad_ending;
+    [SerializeField] private DialogueObject transition;
     private bool startEnding = false;
+    private int endingCount = 0;
+    private bool isFinished = false;
     public GameObject textBox;
 
     private ResponseHandler responseHandler;
@@ -50,7 +49,7 @@ public class DialogueUI : MonoBehaviour
         StartCoroutine(routine: StepThroughDialogue(dialogueObject));
     }
 
-    void ShowCharacter(DialogueCharacter character)
+    public void ShowCharacter(DialogueCharacter character)
     {
         if (character == null)
         {
@@ -62,7 +61,7 @@ public class DialogueUI : MonoBehaviour
         portrait.sprite = character.portrait;
     }
 
-    void ShowBackground(Background bck)
+    public void ShowBackground(Background bck)
     {
         if (bck == null)
         {
@@ -88,23 +87,24 @@ public class DialogueUI : MonoBehaviour
 
         if (dialogueObject.HasResponses)
         {
-            responseHandler.ShowResponses(dialogueObject.Responses);
+            responseHandler.ShowResponses(dialogueObject.Responses, _currentBeatIndex);
+            yield break;    // response handler will take it from here
         }
         else
         {
             if (!startEnding)
                 CloseDialogueBox();
-            else
-                SpecialClose();
 
             if (_currentBeatIndex < beats.Length - 1)
             {
                 _currentBeatIndex++;
                 NextSentence(_currentBeatIndex);
             }
-            else if (!startEnding)
+            else if (!startEnding && endingCount == 0)
             {
                 startEnding = true;
+                endingCount = 1;
+
                 // play the ending...
                 dialogueBox.SetActive(true);
                 portrait.enabled = false;
@@ -113,27 +113,50 @@ public class DialogueUI : MonoBehaviour
                 switch (num)
                 {
                     case -1:
-                        ShowBackground(death_I);
-                        StartCoroutine(routine: StepThroughDialogue(death));
-                        break;
-                    case 0:
-                        ShowBackground(ending_I);
-                        StartCoroutine(routine: StepThroughDialogue(ending));
+                        StartCoroutine(routine: StepThroughEnd(bad_ending));
                         break;
                     case 1:
-                        ShowBackground(good_ending_I);
-                        StartCoroutine(routine: StepThroughDialogue(good_ending));
+                        StartCoroutine(routine: StepThroughEnd(good_ending));
                         break;
                 }
             }
         }
     }
 
-    private void NextSentence(int index)
+    private IEnumerator StepThroughEnd(DialogueObject[] dialogueObject)
     {
+        for (int i = 0; i < dialogueObject.Length; i++)
+        {
+            ShowCharacter(dialogueObject[i].character);
+            for (int k = 0; k < dialogueObject[i].Dialogue.Length; k++)
+            {
+                string dialogue = dialogueObject[i].Dialogue[k];
+                yield return typeWriterEffect.Run(dialogue, textLabel);
+
+                if (k == dialogueObject[i].Dialogue.Length - 1 && dialogueObject[i].HasResponses) break;
+
+                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+            }
+        }
+        SpecialClose();
+    }
+
+    int count = 0;
+    public void NextSentence(int index)
+    {
+        _currentBeatIndex = index;  // should correct when transferring from Responses...
+
+        if (index >= beats.Length)
+        {
+            ShowDialogue(transition);
+            return;
+        }
+
         ShowBackground(beats[_currentBeatIndex].Dialogue.background);
         ShowCharacter(beats[_currentBeatIndex].Dialogue.character);
         ShowDialogue(beats[_currentBeatIndex].Dialogue);
+
+        count++;
     }
 
     private void CloseDialogueBox()
@@ -144,6 +167,7 @@ public class DialogueUI : MonoBehaviour
     private void SpecialClose()
     {
         textBox.SetActive(false);
+        portrait.enabled = false;
         textLabel.text = string.Empty;
     }
 }

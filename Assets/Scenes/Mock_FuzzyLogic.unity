@@ -470,13 +470,29 @@ MonoBehaviour:
   - Dialogue: {fileID: 11400000, guid: cf03fe56333f40146bf094ec672d4e1e, type: 2}
   - Dialogue: {fileID: 11400000, guid: 6f973d0a031e33143b9203db60dae910, type: 2}
   - Dialogue: {fileID: 11400000, guid: 95febed6d0768e8498c6f4ec3e9319a0, type: 2}
+  - Dialogue: {fileID: 11400000, guid: 8132ebe6ab8f3e947bb59e486b71a05e, type: 2}
+  - Dialogue: {fileID: 11400000, guid: f455de43b98ec034fb7e56a6ca6a1fa7, type: 2}
+  - Dialogue: {fileID: 11400000, guid: f32bca81b2df2d94c9fa0004be219a03, type: 2}
+  - Dialogue: {fileID: 11400000, guid: 7fb4d636d853e674597c869e794be343, type: 2}
   fuzzyLogic: {fileID: 1338447627}
-  ending: {fileID: 0}
-  good_ending: {fileID: 0}
-  death: {fileID: 0}
-  ending_I: {fileID: 0}
-  good_ending_I: {fileID: 0}
-  death_I: {fileID: 0}
+  good_ending:
+  - {fileID: 11400000, guid: 50d0e36d4cf690a43b93f4b74f838659, type: 2}
+  - {fileID: 11400000, guid: d55c5c7f6fb94694d84e7e19786daec3, type: 2}
+  - {fileID: 11400000, guid: d1308804aafd2864abbdb3784d41a54e, type: 2}
+  - {fileID: 11400000, guid: 4ab80433970201f47b58feece591311c, type: 2}
+  - {fileID: 11400000, guid: 5030d59d94448304c867dad39de1bd17, type: 2}
+  - {fileID: 11400000, guid: 70601df2291259b498d6650e61fd9ebe, type: 2}
+  - {fileID: 11400000, guid: deb2dec3ad70bd24494e7cabf7ae6a73, type: 2}
+  bad_ending:
+  - {fileID: 11400000, guid: 84ce99e84abf02741bd2eee07d2d15fb, type: 2}
+  - {fileID: 11400000, guid: 69f9c467c3512e84b96cb6aca15e4d47, type: 2}
+  - {fileID: 11400000, guid: e25989959c29c9a4d9464556cd7f0028, type: 2}
+  - {fileID: 11400000, guid: da4122732d7f2d243893c97ece9e0431, type: 2}
+  - {fileID: 11400000, guid: af9cb82d9df835d46ae00873f9653a2d, type: 2}
+  - {fileID: 11400000, guid: 184b940e2d4be2e4fb1387e1fb0c1337, type: 2}
+  - {fileID: 11400000, guid: baaaed260623f2f428ec234d14ccf7b4, type: 2}
+  - {fileID: 11400000, guid: cc4494451786bf443aebeb475c23330a, type: 2}
+  transition: {fileID: 11400000, guid: f358385cd3b3c86479cecdf5460a7992, type: 2}
   textBox: {fileID: 1522445884}
 --- !u!114 &896524904
 MonoBehaviour:
@@ -503,6 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb0b1a6c306afcd49b0c53765b144416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textLabel: {fileID: 1335351905}
   responseBox: {fileID: 1239983486}
   responseButtonTemplate: {fileID: 1151502299}
   responseContainer: {fileID: 1356323404}
@@ -686,7 +703,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Option 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dda1eb00ee63adc46b8044d1f7fc78e1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 993e98c678649cb4fbc2aadd7057d30c, type: 2}
   m_sharedMaterial: {fileID: -4380088222617267790, guid: 475b0f34dbd8bf6458d91c4b5f27e75f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -776,7 +793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1239983486
 RectTransform:
   m_ObjectHideFlags: 0
@@ -842,8 +859,8 @@ MonoBehaviour:
 
     New Text'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dda1eb00ee63adc46b8044d1f7fc78e1, type: 2}
-  m_sharedMaterial: {fileID: -96098744182407721, guid: dda1eb00ee63adc46b8044d1f7fc78e1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 993e98c678649cb4fbc2aadd7057d30c, type: 2}
+  m_sharedMaterial: {fileID: -8198128572150305293, guid: 993e98c678649cb4fbc2aadd7057d30c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -965,64 +982,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e14731cb21b95469fc5a0648d0e881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ending:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 70
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 100
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   good:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 25
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
-      tangentMode: 136
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
-      time: 50
+      time: 1
       value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 136
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 75
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  death:
+  bad:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -1030,19 +1014,19 @@ MonoBehaviour:
       value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 136
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
-      time: 30
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
-      tangentMode: 136
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -1218,7 +1202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1484831763
 RectTransform:
   m_ObjectHideFlags: 0

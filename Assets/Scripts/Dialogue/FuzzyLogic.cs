@@ -9,11 +9,9 @@ public class FuzzyLogic : MonoBehaviour
     // Average elements of list when evaluating
 
     [SerializeField]
-    private AnimationCurve ending;
-    [SerializeField]
     private AnimationCurve good;
     [SerializeField]
-    private AnimationCurve death;
+    private AnimationCurve bad;
 
     public List<int> triggerEvents;
     public float triggeredEventsTotal = 0;
@@ -32,21 +30,15 @@ public class FuzzyLogic : MonoBehaviour
         }
 
         triggeredAverage = triggeredEventsTotal / triggerEvents.Count;
-        float ending = this.ending.Evaluate(triggeredAverage);
         float good_ending = good.Evaluate(triggeredAverage);
-        float death = this.death.Evaluate(triggeredAverage);
+        float bad_ending = this.bad.Evaluate(triggeredAverage);
 
-        Debug.Log("Ending: " + ending);
         Debug.Log("Good Ending: " + good_ending);
-        Debug.Log("Death: " + death);
+        Debug.Log("Bad Ending: " + bad_ending);
 
-        if (death > good_ending && death > ending)
+        if (bad_ending > good_ending)
         {
             return -1;
-        }
-        else if (ending > good_ending)
-        {
-            return 0;
         }
         else
         {

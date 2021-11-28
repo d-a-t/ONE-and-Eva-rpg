@@ -20,9 +20,16 @@ MonoBehaviour:
   responses:
   - responseText: Take Out the Robot
     dialogueObject:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 5f19fd66956f13441a7dac2e614b09d1, type: 2}
     pointAmount: 0
   - responseText: Try and Persuade the Robot
     dialogueObject:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 0964e93b8403d4b4095b9d3055738d37, type: 2}
+    - {fileID: 11400000, guid: cb4ea2e5224f40b4eaacbfdb7637c195, type: 2}
+    - {fileID: 11400000, guid: 8b3cacf0ff5e28b4bbd4a6d2f255cd69, type: 2}
+    - {fileID: 11400000, guid: a0073a8a147db99439146d75c7fca6ae, type: 2}
+    - {fileID: 11400000, guid: 2258b4fd7193eb04b8e1a977c6e6d20e, type: 2}
+    - {fileID: 11400000, guid: 867589dc963c2464492f045f404fea1e, type: 2}
+    - {fileID: 11400000, guid: 1fb26e5a6c9002f45aecb7630696a927, type: 2}
+    - {fileID: 11400000, guid: 4e0070682ef14be49b0517cd005df554, type: 2}
     pointAmount: 100
