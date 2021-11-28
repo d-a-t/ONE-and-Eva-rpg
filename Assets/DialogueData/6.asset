@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ca285fd2b8a604ca411257512b6b5c, type: 3}
   m_Name: 6
   m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: 231bb739b751d724d9a189c3124642db, type: 2}
+  background: {fileID: 11400000, guid: 11a6661644094ac42a4f68be98e112cf, type: 2}
   dialogue:
-  - The door is locked, guarded by a robot. It seems to be the only way out.
+  - There is another door, also guarded by a robot. It seems to be the only way out.
+  - Is fighting the only option?
   responses:
   - responseText: Take Out the Robot
-    dialogueObject: {fileID: 0}
+    dialogueObject:
+    - {fileID: 0}
     pointAmount: 0
   - responseText: Try and Persuade the Robot
-    dialogueObject: {fileID: 0}
+    dialogueObject:
+    - {fileID: 0}
     pointAmount: 100

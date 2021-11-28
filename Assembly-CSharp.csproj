@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,20 +53,17 @@
     <UnityVersion>2021.1.15f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Utils\VariableUtil.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Utils\MaidUtil.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Parallax.cs" />
-    <Compile Include="Assets\Scripts\DialogueCharacter.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueCharacter.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Hitbox.cs" />
-    <Compile Include="Assets\Scripts\DialogueUI.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueUI.cs" />
     <Compile Include="Assets\Scripts\video.cs" />
     <Compile Include="Assets\Scripts\Boss\BossBattle.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\ScreenGUI\Derived\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\FuzzyLogic.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\FuzzyLogic.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Serializables\SerializeProperty.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\LaserGun.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\ComponentGrouper.cs" />
@@ -74,10 +71,10 @@
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Gun.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\Character.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Utils\CFrameUtil.cs" />
-    <Compile Include="Assets\Scripts\DialogueBeat.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueBeat.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\ScreenGUI\Derived\OptionsMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerCombat.cs" />
-    <Compile Include="Assets\Scripts\Response.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\Response.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Controllers\InputController.cs" />
     <Compile Include="Assets\Scripts\Boss\Laser.cs" />
     <Compile Include="Assets\Scripts\Boss\BossHealth.cs" />
@@ -85,7 +82,7 @@
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Tool.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\Boss.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Controllers\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Background.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\Background.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\ScreenGUI\ScreenGUI.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Projectile.cs" />
     <Compile Include="Assets\Scripts\HealthSystem\HealthSystem.cs" />
@@ -97,13 +94,13 @@
     <Compile Include="Assets\Scripts\Boss\BossTrigger.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\ScreenGUI\Derived\SplashScreen.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\CentrifugalTool.cs" />
-    <Compile Include="Assets\Scripts\TypeWriterEffect.cs" />
-    <Compile Include="Assets\Scripts\DialogueObject.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\TypeWriterEffect.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueObject.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Settings\Global.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Menu.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Settings\Config.cs" />
-    <Compile Include="Assets\Scripts\ResponseHandler.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\ResponseHandler.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Character\Player.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\KeyBindUpdater.cs" />
     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Serializables\SerializableDict.cs" />

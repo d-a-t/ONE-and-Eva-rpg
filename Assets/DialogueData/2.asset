@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ca285fd2b8a604ca411257512b6b5c, type: 3}
   m_Name: 2
   m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: 56ed1c19a75ff60479421db82e6f455f, type: 2}
+  background: {fileID: 11400000, guid: 11a6661644094ac42a4f68be98e112cf, type: 2}
   dialogue:
   - "I\u2019m scared.\r..."
   responses: []

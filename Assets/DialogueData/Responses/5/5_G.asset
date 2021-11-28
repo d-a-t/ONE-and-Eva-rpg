@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ca285fd2b8a604ca411257512b6b5c, type: 3}
   m_Name: 5_G
   m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: b3057ec7b4a9118408819dde4f03fffb, type: 2}
+  background: {fileID: 11400000, guid: 11a6661644094ac42a4f68be98e112cf, type: 2}
   dialogue:
   - Eva, stay here.
   - "*ONE rushes into the robot and stabs the robot with her sword, cutting into
