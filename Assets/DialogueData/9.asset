@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ca285fd2b8a604ca411257512b6b5c, type: 3}
+  m_Name: 9
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: 17e1a89c46c1903469119babf3ae0cc5, type: 2}
+  background: {fileID: 11400000, guid: 11a6661644094ac42a4f68be98e112cf, type: 2}
+  dialogue:
+  - '*Eva hurriedly walks past the robot, as if trying not to look at it.*'
+  - What should ONE do?
+  responses:
+  - responseText: Take the Robot's chip
+    dialogueObject:
+    - {fileID: 11400000, guid: 8506fb958a93a75498db51f2368ba68c, type: 2}
+    pointAmount: 0
+  - responseText: Leave the Robot alone
+    dialogueObject:
+    - {fileID: 11400000, guid: f23f1006fe2015b4c9e988738f1e1905, type: 2}
+    pointAmount: 50
+  - responseText: Insert the chip back into the Robot
+    dialogueObject:
+    - {fileID: 11400000, guid: 6d49e8e1e32490241a5e77d746fd1525, type: 2}
+    pointAmount: 100
