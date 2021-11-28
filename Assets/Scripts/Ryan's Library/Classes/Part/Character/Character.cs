@@ -47,11 +47,17 @@ public class Character : Part, IControllable {
 	}
 
 	public override void Start() {
+		base.Start();
 		if (Healthbar) {
 			Maid.GiveTask(
 				Health.Connect(
 					(float val) => {
 						Healthbar.value = val;
+
+						if (val <= 0) {
+							Maid.DoCleaning();
+							return false;
+						}
 						return true;
 					}
 				)

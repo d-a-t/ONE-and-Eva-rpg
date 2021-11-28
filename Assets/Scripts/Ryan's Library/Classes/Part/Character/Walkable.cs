@@ -13,7 +13,7 @@ public class Walkable : Character {
 	protected Variable<float> CurrentSpeed = new Variable<float>();
 
 	public override void BindPlayerControls() {
-		base.Start();
+		base.BindPlayerControls();
 		
 		//Binds the RIGHT key to make the character walk to the right.
 		ControlMaid.GiveTask(
@@ -99,7 +99,7 @@ public class Walkable : Character {
 	}
 
 	public override void Awake() {
-		base.Start();
+		base.Awake();
 		CurrentSpeed.Value = WalkSpeed;
 	}
 
