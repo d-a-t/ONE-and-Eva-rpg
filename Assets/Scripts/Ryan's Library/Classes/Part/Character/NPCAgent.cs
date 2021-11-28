@@ -16,7 +16,17 @@ public class NPCAgent : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update() {
+	void LateUpdate() {
 		Agent.SetDestination(Target.Value.position);
+		Character.Animator.SetFloat("Horizontal", Agent.desiredVelocity.x);
+		Character.Animator.SetFloat("Vertical", -Agent.desiredVelocity.y);
+		Character.Animator.SetFloat("Speed", Agent.speed);
+		if (gameObject.GetComponent<PlayerForwardAttack>()) {
+			PlayerForwardAttack bruh = gameObject.GetComponent<PlayerForwardAttack>();
+			if ((Agent.transform.position - Target.Value.position).magnitude < 5) {
+				bruh.Direction = (Agent.transform.position - Target.Value.position).AsVector2();
+				bruh.Attack();
+			}
+		}
 	}
 }

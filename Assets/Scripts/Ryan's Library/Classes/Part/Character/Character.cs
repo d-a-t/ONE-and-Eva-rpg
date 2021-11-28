@@ -19,13 +19,21 @@ public class Character : Part, IControllable {
 	public float MaxHealth;
 	public Slider Healthbar;
 
+	public bool IsPlayer = true;
+
+	public List<IControllable> Controllables = new List<IControllable>();
 	protected Maid ControlMaid = new Maid();
 	public virtual void BindPlayerControls() {
-	
+		foreach (IControllable v in Controllables) {
+			v.BindPlayerControls();
+		}
 	}
 
 	public virtual void UnBindControls() {
 		ControlMaid.DoCleaning();
+		foreach (IControllable v in Controllables) {
+			v.UnBindControls();
+		}
 	}
 
 	public void TakeDamage(float val) {
@@ -48,6 +56,17 @@ public class Character : Part, IControllable {
 
 	public override void Start() {
 		base.Start();
+
+		Health.Connect(
+			(float val) => {
+				if (val <= 0) {
+					Maid.DoCleaning();
+					return false;
+				}
+				return true;
+			}
+		);
+
 		if (Healthbar) {
 			Maid.GiveTask(
 				Health.Connect(
@@ -56,7 +75,6 @@ public class Character : Part, IControllable {
 
 						if (val <= 0) {
 							Maid.DoCleaning();
-							return false;
 						}
 						return true;
 					}

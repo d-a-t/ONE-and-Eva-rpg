@@ -6,9 +6,11 @@ public class Humanoid : Walkable {
 
 	// Update is called once per frame
 	public void Update() {
-		Animator.SetFloat("Horizontal", WalkDirection.x);
-		Animator.SetFloat("Vertical", -WalkDirection.y);
-		Animator.SetFloat("Speed", WalkDirection.sqrMagnitude);
+		if (IsPlayer) {
+			Animator.SetFloat("Horizontal", WalkDirection.x);
+			Animator.SetFloat("Vertical", -WalkDirection.y);
+			Animator.SetFloat("Speed", WalkDirection.sqrMagnitude);
+		}
 	}
 
 	public override void Awake() {

@@ -23,6 +23,7 @@ public class Gun : Tool {
 	public float Speed = 120;
 	public Projectile.Types BulletType = Projectile.Types.Fastcast;
 
+	public Character Owner;
 
 	/// <summary>
 	/// How much damage the gun does per shot.
@@ -38,6 +39,8 @@ public class Gun : Tool {
 			Projectile bullet = Projectile.Create(BulletType, Firepoint.position, Direction);
 			bullet.Damage = Damage;
 			bullet.Speed = Speed;
+
+			bullet.IgnoreColliders.Add(Owner.Collider);
 
 			SoundController.PlayClipAtPoint("Gunshot", transform.position).volume = .5F;
 
@@ -60,6 +63,7 @@ public class Gun : Tool {
 
 		Runservice.BindToFixedUpdate(Global.RunservicePriority.Heartbeat.Physics - 1, (float dt) => {
 			if (InputController.Keyboard[InputController.GetKeyCode(PlayerPrefs.GetString("SHOOT"))].Value) {
+				Direction = InputController.Mouse.Position.AsVector3() - Owner.transform.position;
 				Shoot();
 			}
 			return true;
@@ -94,6 +98,8 @@ public class Gun : Tool {
 	// Start is called before the first frame update
 	public override void Start() {
 		base.Start();
+
+		Owner?.Controllables.Add(this);
 
 		Maid.GiveTask(delegate () {
 			UnBindControls();

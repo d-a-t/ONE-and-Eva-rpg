@@ -515,36 +515,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!1 &887386807
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 887386808}
-  m_Layer: 3
-  m_Name: AttackPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &887386808
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887386807}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.177, y: 0.256, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1920531213}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &992588877
 GameObject:
   m_ObjectHideFlags: 0
@@ -15939,7 +15909,8 @@ MonoBehaviour:
   RPM: 400
   Speed: 60
   BulletType: 1
-  Damage: 1
+  Owner: {fileID: 9064706667322557008}
+  Damage: 10
   Firepoint: {fileID: 1571524990}
 --- !u!4 &1695924443
 Transform:
@@ -15949,7 +15920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695924441}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.48000002, y: 2.9994645, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1736487585}
@@ -16513,6 +16484,7 @@ GameObject:
   - component: {fileID: 1920531208}
   - component: {fileID: 1920531207}
   - component: {fileID: 1920531206}
+  - component: {fileID: 1920531214}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
@@ -16585,7 +16557,8 @@ MonoBehaviour:
     _Value: 100
     Locked: 0
   MaxHealth: 0
-  Healthbar: {fileID: 1107424981}
+  Healthbar: {fileID: 0}
+  IsPlayer: 0
   WalkSpeed: 5
   RunSpeed: 10
   JumpPower: 10
@@ -16600,7 +16573,7 @@ Animator:
   m_GameObject: {fileID: 1920531205}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5db99593adf25624abf9b3ae8860dbe0, type: 2}
+  m_Controller: {fileID: 9100000, guid: c46bf3da1bea4df42bb816f1f4d9fdfa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -16719,10 +16692,32 @@ Transform:
   m_LocalPosition: {x: 0.46, y: 6.1, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children:
-  - {fileID: 887386808}
+  - {fileID: 2104831546}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1920531214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920531205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130d08bee43bf374d9bcb4105c4dcc3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 1920531209}
+  EnemyLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  HitboxCollider: {fileID: 2104831544}
+  Damage: 10
+  Cooldown: 2
+  Knockback: 1500
+  Direction: {x: 0, y: 0}
+  IsPlayer: 0
 --- !u!1 &1962524667
 GameObject:
   m_ObjectHideFlags: 0
@@ -16925,6 +16920,80 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2104831543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2104831546}
+  - component: {fileID: 2104831544}
+  - component: {fileID: 2104831545}
+  m_Layer: 3
+  m_Name: AttackHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2104831544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104831543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec8b67b7d40ca44c8497c0db016162a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Model: {fileID: 0}
+  Collider: {fileID: 2104831545}
+  Rigidbody: {fileID: 0}
+  Visible:
+    _Value: 1
+    Locked: 0
+  PhysicsLayer:
+    _Value: 6
+    Locked: 0
+  Enabled: 1
+  ScanLength: 0.1
+  Hit:
+    _Value: {fileID: 0}
+    Locked: 0
+--- !u!70 &2104831545
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104831543}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.10587478, y: 1.6032467}
+  m_Size: {x: 1.0747485, y: 4.2812414}
+  m_Direction: 0
+--- !u!4 &2104831546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104831543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1920531213}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2138139248
 GameObject:
   m_ObjectHideFlags: 0
@@ -17183,6 +17252,7 @@ MonoBehaviour:
     Locked: 0
   MaxHealth: 0
   Healthbar: {fileID: 1107424981}
+  IsPlayer: 1
   WalkSpeed: 5
   RunSpeed: 10
   JumpPower: 10
@@ -17207,3 +17277,5 @@ MonoBehaviour:
   Damage: 100
   Cooldown: 0.5
   Knockback: 10
+  Direction: {x: 0, y: 0}
+  IsPlayer: 1

@@ -11,16 +11,20 @@ public class PlayerForwardAttack : MonoBehaviour {
 	public float Damage = 10F;
 	public float Cooldown = .5F;
 	public float Knockback = 10F;
+	public Vector2 Direction = new Vector2();
+	public bool IsPlayer = true;
 	private bool CanDash = true;
-
+	
 	private void Start() {
-		InputController.Keyboard[InputController.GetKeyCode(PlayerPrefs.GetString("ATTACK", "Space"))].Connect(
-			(bool val) => {
-				Attack();
-				return this;
-			}
-		);
-
+		if (IsPlayer) {
+			InputController.Keyboard[InputController.GetKeyCode(PlayerPrefs.GetString("ATTACK", "Space"))].Connect(
+				(bool val) => {
+					Direction = transform.position.AsVector2() - InputController.Mouse.Position;
+					Attack();
+					return this;
+				}
+			);
+		}
 		HitboxCollider.Hit.Connect(
 			(Collider2D val) => {
 				if (val) {
@@ -37,7 +41,7 @@ public class PlayerForwardAttack : MonoBehaviour {
 		HitboxCollider.gameObject.SetActive(false);
 	}
 
-	void Attack() {
+	public void Attack() {
 		if (CanDash) {
 			CanDash = false;
 			//Cooldown, sets able to attack again after cooldown
@@ -49,9 +53,8 @@ public class PlayerForwardAttack : MonoBehaviour {
 			// Play an attack animation
 			Animator.SetTrigger("Attack");
 
-			Vector3 lookVec = transform.position - InputController.Mouse.Position.AsVector3();
 			HitboxCollider.transform.position = transform.position;
-			HitboxCollider.transform.eulerAngles = new Vector3(HitboxCollider.transform.eulerAngles.x, HitboxCollider.transform.eulerAngles.y, (Mathf.Atan2(lookVec.y, lookVec.x) * Mathf.Rad2Deg) + 90);
+			HitboxCollider.transform.eulerAngles = new Vector3(HitboxCollider.transform.eulerAngles.x, HitboxCollider.transform.eulerAngles.y, (Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg) + 90);
 			HitboxCollider.gameObject.SetActive(true);
 
 			Runservice.RunAfter(0, .1F,
