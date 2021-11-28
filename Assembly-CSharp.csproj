@@ -94,6 +94,7 @@
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\GUI\Textbox.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Utils\AnyUtil.cs" />
      <Compile Include="Assets\Scripts\UI\KeybindManager.cs" />
+     <Compile Include="Assets\DialogueData\DialogueOptionScene.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

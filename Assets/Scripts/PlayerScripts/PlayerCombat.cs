@@ -16,12 +16,8 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
-    // input for damage/attacks
-    public BossHealth bossHealth;
-
     private void Start()
     {
-        bossHealth = bossHealth.GetComponent<BossHealth>();
     }
 
     // Update is called once per frame

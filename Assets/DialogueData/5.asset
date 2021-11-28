@@ -21,7 +21,9 @@ MonoBehaviour:
     dialogueObject:
     - {fileID: 11400000, guid: 923dea6610effe0408928e8c16d93b9b, type: 2}
     pointAmount: 0
+    loadScene: BossBattle
   - responseText: Try and Sneak Away
     dialogueObject:
     - {fileID: 11400000, guid: f1b00436e96353448b36315287cb6b1e, type: 2}
     pointAmount: 100
+    loadScene: 

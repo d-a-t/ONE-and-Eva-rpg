@@ -40,8 +40,10 @@ public class Gun : Tool {
 			bullet.Damage = Damage;
 			bullet.Speed = Speed;
 
-			bullet.IgnoreColliders.Add(Owner.Collider);
-
+			if (Owner) {
+				bullet.IgnoreColliders.Add(Owner.Collider);
+			}
+			
 			SoundController.PlayClipAtPoint("Gunshot", transform.position).volume = .5F;
 
 			bullet.Hit.Connect(

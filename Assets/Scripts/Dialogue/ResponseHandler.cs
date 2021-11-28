@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ResponseHandler : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class ResponseHandler : MonoBehaviour
     {
         responseBox.gameObject.SetActive(false);
 
-        foreach (GameObject button in tempResponseButtons)
+		foreach (GameObject button in tempResponseButtons)
         {
             Destroy(button);
         }
@@ -57,6 +58,12 @@ public class ResponseHandler : MonoBehaviour
 
         // add the points to the list for fuzzy logic
         fuzzyLogic.AddToList(response.pointAmount);
+
+      //  PlayerPrefs.SetFloat("beatsIndex", )
+
+        if (response.loadScene != null) {
+			SceneManager.LoadScene(response.loadScene);
+		}
 
         StartCoroutine(routine: ResponseStepThrough(response.DialogueObject));
     }
