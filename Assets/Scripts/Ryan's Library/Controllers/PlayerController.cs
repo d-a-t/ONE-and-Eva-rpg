@@ -11,7 +11,7 @@ public sealed class PlayerController : Singleton {
 	public static PlayerController Singleton;
 	public Variable<int> Score = new Variable<int>();
 	public Character PlayerCharacter;
-
+	public string SceneOnDeath = "GameOver";
 	public int TotalScore;
 
 	public void Awake() {
@@ -28,7 +28,7 @@ public sealed class PlayerController : Singleton {
 				PlayerPrefs.SetFloat("Score", PlayerCharacter.Health.Value);
 
 				if (val <= 0) {
-					SceneManager.LoadScene("GameOver");
+					SceneManager.LoadScene(SceneOnDeath);
 				}
 
 				return (val > 0);

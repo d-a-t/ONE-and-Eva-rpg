@@ -31,6 +31,11 @@ public class MainMenu : MonoBehaviour {
 		Application.Quit();
 	}
 
+	public void ResetDialogue() {
+		PlayerPrefs.SetInt("beatIndex", 0);
+		PlayerPrefs.SetInt("BeatLevel", 0);
+	}
+
 	public void Start() {
 		if (Score) {
 			Score.text = "SCORE: " + PlayerPrefs.GetFloat("Score", 100);

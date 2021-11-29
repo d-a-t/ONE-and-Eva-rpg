@@ -23,7 +23,7 @@ public class NPCAgent : MonoBehaviour {
 		Character.Animator.SetFloat("Speed", Agent.speed);
 		if (gameObject.GetComponent<PlayerForwardAttack>()) {
 			PlayerForwardAttack bruh = gameObject.GetComponent<PlayerForwardAttack>();
-			if ((Agent.transform.position - Target.Value.position).magnitude < 5) {
+			if ((Agent.transform.position - Target.Value.position).magnitude < 3) {
 				bruh.Direction = (Agent.transform.position - Target.Value.position).AsVector2();
 				bruh.Attack();
 			}

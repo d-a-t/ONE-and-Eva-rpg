@@ -105,7 +105,7 @@ public class Projectile : Part {
 					self.lr.endWidth = self.Width.Item2;
 
 					self.lr.sortingLayerName = "Top";
-					self.lr.sortingOrder = 90;
+					self.lr.sortingOrder = 99;
 
 					Listener<float> updateProjectileHitbox = Runservice.BindToFixedUpdate(Global.RunservicePriority.Heartbeat.Physics,
 						(float dt) => {

@@ -43,6 +43,7 @@
      <Compile Include="Assets\Scripts\PlayerScripts\PlayerForwardAttack.cs" />
      <Compile Include="Assets\Scripts\Dialogue\DialogueCharacter.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\Part\Hitbox.cs" />
+     <Compile Include="Assets\DialogueData\DIalogueSave.cs" />
      <Compile Include="Assets\Scripts\Dialogue\DialogueUI.cs" />
      <Compile Include="Assets\Scripts\video.cs" />
      <Compile Include="Assets\Scripts\Boss\BossBattle.cs" />
@@ -94,7 +95,7 @@
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Classes\GUI\Textbox.cs" />
      <Compile Include="Assets\Scripts\Ryan&apos;s Library\Utils\AnyUtil.cs" />
      <Compile Include="Assets\Scripts\UI\KeybindManager.cs" />
-     <Compile Include="Assets\DialogueData\DialogueOptionScene.cs" />
+     <Compile Include="Assets\Scripts\LoadSceneOnDeath.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

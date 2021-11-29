@@ -22,6 +22,7 @@ MonoBehaviour:
     dialogueObject:
     - {fileID: 11400000, guid: 5f19fd66956f13441a7dac2e614b09d1, type: 2}
     pointAmount: 0
+    loadScene: GuardedDoor
   - responseText: Try and Persuade the Robot
     dialogueObject:
     - {fileID: 11400000, guid: 0964e93b8403d4b4095b9d3055738d37, type: 2}
@@ -33,3 +34,4 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1fb26e5a6c9002f45aecb7630696a927, type: 2}
     - {fileID: 11400000, guid: 4e0070682ef14be49b0517cd005df554, type: 2}
     pointAmount: 100
+    loadScene: 

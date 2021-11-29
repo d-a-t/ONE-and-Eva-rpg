@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum Controls {
-	UP, DOWN, LEFT, RIGHT, ATTACK, SHOOT
+	UP, DOWN, LEFT, RIGHT, ATTACK, SHOOT, RUN
 }
 
 public class KeyBindUpdater : MonoBehaviour {
@@ -14,6 +14,7 @@ public class KeyBindUpdater : MonoBehaviour {
 	public Text RIGHT;
 	public Text ATTACK;
 	public Text SHOOT;
+	public Text RUN;
 
 	public void UpdateKeybind(string control) {
 		UpdateKeybind((Controls)System.Enum.Parse(typeof(Controls), control));
@@ -52,6 +53,11 @@ public class KeyBindUpdater : MonoBehaviour {
 						PlayerPrefs.SetString("SHOOT", val.ToString());
 						break;
 					}
+				case Controls.RUN: {
+						RUN.text = val.ToString();
+						PlayerPrefs.SetString("RUN", val.ToString());
+						break;
+					}
 			}
 			return false;
 		});
@@ -87,7 +93,8 @@ public class KeyBindUpdater : MonoBehaviour {
 		RIGHT.text = PlayerPrefs.GetString("RIGHT", "D");
 
 		ATTACK.text = PlayerPrefs.GetString("ATTACK", "Space");
-		SHOOT.text = PlayerPrefs.GetString("SHOOT", "Mouse0"); ;
+		SHOOT.text = PlayerPrefs.GetString("SHOOT", "Mouse0");
+		RUN.text = PlayerPrefs.GetString("RUN", "LeftShift");
 	}
 
 

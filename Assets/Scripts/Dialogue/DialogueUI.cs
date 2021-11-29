@@ -3,171 +3,164 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
-public class DialogueUI : MonoBehaviour
-{
-    [SerializeField] private TMP_Text textLabel;
-    [SerializeField] private GameObject dialogueBox;
+public class DialogueUI : MonoBehaviour {
+	[SerializeField] private TMP_Text textLabel;
+	[SerializeField] private GameObject dialogueBox;
 
-    // sprites
-    public Image portrait;
-    public Image background;
+	// sprites
+	public Image portrait;
+	public Image background;
 
-    public DialogueBeat[] beats;
-    int _currentBeatIndex = 0;
-    //------
+	public DialogueBeat[] beats;
+	int _currentBeatIndex = 0;
+	//------
 
-    // for the endings of the game
-    [Header("EndingSettings")]
-    public GameObject fuzzyLogic;
-    [SerializeField] private DialogueObject[] good_ending;
-    [SerializeField] private DialogueObject[] bad_ending;
-    [SerializeField] private DialogueObject transition;
-    private bool startEnding = false;
-    private int endingCount = 0;
-    private bool isFinished = false;
-    public GameObject textBox;
+	// for the endings of the game
+	[Header("EndingSettings")]
+	public GameObject fuzzyLogic;
+	[SerializeField] private DialogueObject[] good_ending;
+	[SerializeField] private DialogueObject[] bad_ending;
+	[SerializeField] private DialogueObject transition;
+	private bool startEnding = false;
+	private int endingCount = 0;
+	private bool isFinished = false;
+	public GameObject textBox;
 
-    private ResponseHandler responseHandler;
-    private TypeWriterEffect typeWriterEffect;
+	private ResponseHandler responseHandler;
+	private TypeWriterEffect typeWriterEffect;
 
-    private void Start()
-    {
-        typeWriterEffect = GetComponent<TypeWriterEffect>();
-        responseHandler = GetComponent<ResponseHandler>();
+	private void Start() {
+		_currentBeatIndex = PlayerPrefs.GetInt("beatIndex", 0);
 
-        CloseDialogueBox();
+		typeWriterEffect = GetComponent<TypeWriterEffect>();
+		responseHandler = GetComponent<ResponseHandler>();
 
-        ShowBackground(beats[_currentBeatIndex].Dialogue.background);
-        ShowCharacter(beats[_currentBeatIndex].Dialogue.character);
-        ShowDialogue(beats[_currentBeatIndex].Dialogue);
-    }
+		CloseDialogueBox();
 
-    public void ShowDialogue(DialogueObject dialogueObject)
-    {
-        dialogueBox.SetActive(true);
-        StartCoroutine(routine: StepThroughDialogue(dialogueObject));
-    }
+		ShowBackground(beats[_currentBeatIndex].Dialogue.background);
+		ShowCharacter(beats[_currentBeatIndex].Dialogue.character);
+		ShowDialogue(beats[_currentBeatIndex].Dialogue);
+	}
 
-    public void ShowCharacter(DialogueCharacter character)
-    {
-        if (character == null)
-        {
-            portrait.enabled = false;
-            return;
-        }
+	public void ShowDialogue(DialogueObject dialogueObject) {
+		dialogueBox.SetActive(true);
+		StartCoroutine(routine: StepThroughDialogue(dialogueObject));
+	}
 
-        portrait.enabled = true;
-        portrait.sprite = character.portrait;
-    }
+	public void ShowCharacter(DialogueCharacter character) {
+		if (character == null) {
+			portrait.enabled = false;
+			return;
+		}
 
-    public void ShowBackground(Background bck)
-    {
-        if (bck == null)
-        {
-            background.enabled = false;
-            return;
-        }
+		portrait.enabled = true;
+		portrait.sprite = character.portrait;
+	}
 
-        background.enabled = true;
-        background.sprite = bck.bckground;
-    }
+	public void ShowBackground(Background bck) {
+		if (bck == null) {
+			background.enabled = false;
+			return;
+		}
 
-    private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
-    {
-        for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
-        {
-            string dialogue = dialogueObject.Dialogue[i];
-            yield return typeWriterEffect.Run(dialogue, textLabel);
+		background.enabled = true;
+		background.sprite = bck.bckground;
+	}
 
-            if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
+	private IEnumerator StepThroughDialogue(DialogueObject dialogueObject) {
+		for (int i = 0; i < dialogueObject.Dialogue.Length; i++) {
+			string dialogue = dialogueObject.Dialogue[i];
+			yield return typeWriterEffect.Run(dialogue, textLabel);
 
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
-        }
+			if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
 
-        if (dialogueObject.HasResponses)
-        {
-            responseHandler.ShowResponses(dialogueObject.Responses, _currentBeatIndex);
-            yield break;    // response handler will take it from here
-        }
-        else
-        {
-            if (!startEnding)
-                CloseDialogueBox();
+			yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+		}
 
-            if (_currentBeatIndex < beats.Length - 1)
-            {
-                _currentBeatIndex++;
-                NextSentence(_currentBeatIndex);
-            }
-            else if (!startEnding && endingCount == 0)
-            {
-                startEnding = true;
-                endingCount = 1;
+		if (dialogueObject.HasResponses) {
+			responseHandler.ShowResponses(dialogueObject.Responses, _currentBeatIndex);
+			yield break;    // response handler will take it from here
+		} else {
+			if (!startEnding)
+				CloseDialogueBox();
 
-                // play the ending...
-                dialogueBox.SetActive(true);
-                portrait.enabled = false;
+			if (_currentBeatIndex < beats.Length - 1) {
+				_currentBeatIndex++;
+				NextSentence(_currentBeatIndex);
+			} else if (!startEnding && endingCount == 0) {
+				startEnding = true;
+				endingCount = 1;
 
-                int num = fuzzyLogic.GetComponent<FuzzyLogic>().EvaluateFuzzy();
-                switch (num)
-                {
-                    case -1:
-                        StartCoroutine(routine: StepThroughEnd(bad_ending));
-                        break;
-                    case 1:
-                        StartCoroutine(routine: StepThroughEnd(good_ending));
-                        break;
-                }
-            }
-        }
-    }
+				// play the ending...
+				dialogueBox.SetActive(true);
+				portrait.enabled = false;
 
-    private IEnumerator StepThroughEnd(DialogueObject[] dialogueObject)
-    {
-        for (int i = 0; i < dialogueObject.Length; i++)
-        {
-            ShowCharacter(dialogueObject[i].character);
-            for (int k = 0; k < dialogueObject[i].Dialogue.Length; k++)
-            {
-                string dialogue = dialogueObject[i].Dialogue[k];
-                yield return typeWriterEffect.Run(dialogue, textLabel);
+				int num = fuzzyLogic.GetComponent<FuzzyLogic>().EvaluateFuzzy();
+				switch (num) {
+					case -1:
+						StartCoroutine(routine: StepThroughEnd(bad_ending));
+						break;
+					case 1:
+						StartCoroutine(routine: StepThroughEnd(good_ending));
+						break;
+				}
+			}
+		}
+	}
 
-                if (k == dialogueObject[i].Dialogue.Length - 1 && dialogueObject[i].HasResponses) break;
+	private IEnumerator StepThroughEnd(DialogueObject[] dialogueObject) {
+		for (int i = 0; i < dialogueObject.Length; i++) {
+			ShowCharacter(dialogueObject[i].character);
+			for (int k = 0; k < dialogueObject[i].Dialogue.Length; k++) {
+				string dialogue = dialogueObject[i].Dialogue[k];
+				yield return typeWriterEffect.Run(dialogue, textLabel);
 
-                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
-            }
-        }
-        SpecialClose();
-    }
+				if (k == dialogueObject[i].Dialogue.Length - 1 && dialogueObject[i].HasResponses) break;
 
-    int count = 0;
-    public void NextSentence(int index)
-    {
-        _currentBeatIndex = index;  // should correct when transferring from Responses...
+				yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+			}
+		}
+		SpecialClose();
+	}
 
-        if (index >= beats.Length)
-        {
-            ShowDialogue(transition);
-            return;
-        }
+	int count = 0;
+	public void NextSentence(int index) {
+		_currentBeatIndex = index;  // should correct when transferring from Responses...
 
-        ShowBackground(beats[_currentBeatIndex].Dialogue.background);
-        ShowCharacter(beats[_currentBeatIndex].Dialogue.character);
-        ShowDialogue(beats[_currentBeatIndex].Dialogue);
+		if (index >= beats.Length) {
+			ShowDialogue(transition);
+			return;
+		}
 
-        count++;
-    }
+		ShowBackground(beats[_currentBeatIndex].Dialogue.background);
+		ShowCharacter(beats[_currentBeatIndex].Dialogue.character);
+		ShowDialogue(beats[_currentBeatIndex].Dialogue);
 
-    private void CloseDialogueBox()
-    {
-        dialogueBox.SetActive(false);
-        textLabel.text = string.Empty;
-    }
-    private void SpecialClose()
-    {
-        textBox.SetActive(false);
-        portrait.enabled = false;
-        textLabel.text = string.Empty;
-    }
+		count++;
+	}
+
+	private void CloseDialogueBox() {
+		dialogueBox.SetActive(false);
+		textLabel.text = string.Empty;
+	}
+	private void SpecialClose() {
+		textBox.SetActive(false);
+		portrait.enabled = false;
+		textLabel.text = string.Empty;
+        
+		if (startEnding) {
+				int num = fuzzyLogic.GetComponent<FuzzyLogic>().EvaluateFuzzy();
+				switch (num) {
+					case -1:
+						SceneManager.LoadScene("BossBattle");
+						break;
+					case 1:
+                        PlayerPrefs.SetFloat("Score", PlayerPrefs.GetFloat("Score", 100) + 100);
+						SceneManager.LoadScene("WinScreen");
+						break;
+				}
+		}
+	}
 }

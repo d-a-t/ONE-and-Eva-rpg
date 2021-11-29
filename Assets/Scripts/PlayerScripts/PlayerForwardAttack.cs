@@ -19,8 +19,12 @@ public class PlayerForwardAttack : MonoBehaviour {
 		if (IsPlayer) {
 			InputController.Keyboard[InputController.GetKeyCode(PlayerPrefs.GetString("ATTACK", "Space"))].Connect(
 				(bool val) => {
-					Direction = transform.position.AsVector2() - InputController.Mouse.Position;
-					Attack();
+					if (this) {
+						Direction = transform.position.AsVector2() - InputController.Mouse.Position;
+						Attack();
+					} else {
+						return false;
+					}
 					return this;
 				}
 			);
@@ -59,7 +63,9 @@ public class PlayerForwardAttack : MonoBehaviour {
 
 			Runservice.RunAfter(0, .1F,
 				delegate {
-					HitboxCollider.gameObject.SetActive(false);
+					if (HitboxCollider) {
+						HitboxCollider.gameObject.SetActive(false);
+					}
 				}
 			);
 		}

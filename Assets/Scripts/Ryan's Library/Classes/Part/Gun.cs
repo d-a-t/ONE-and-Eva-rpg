@@ -63,13 +63,13 @@ public class Gun : Tool {
 	public override void BindPlayerControls() {
 		base.BindPlayerControls();
 
-		Runservice.BindToFixedUpdate(Global.RunservicePriority.Heartbeat.Physics - 1, (float dt) => {
+		Maid.GiveTask(Runservice.BindToFixedUpdate(Global.RunservicePriority.Heartbeat.Physics - 1, (float dt) => {
 			if (InputController.Keyboard[InputController.GetKeyCode(PlayerPrefs.GetString("SHOOT"))].Value) {
 				Direction = InputController.Mouse.Position.AsVector3() - Owner.transform.position;
 				Shoot();
 			}
 			return true;
-		});
+		}));
 
 
 	}

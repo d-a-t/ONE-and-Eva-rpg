@@ -29,4 +29,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MockIvu.unity
     guid: 0e7c1eac7952a004ab191aca19ffa19f
+  - enabled: 1
+    path: Assets/Scenes/Mock_FuzzyLogic.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/TakedownRobot.unity
+    guid: b13e9edab785cf24d956940615a6d2dd
+  - enabled: 1
+    path: Assets/Scenes/GuardedDoor.unity
+    guid: c98340fdd13cf604ba2e6e2ce7c31962
+  - enabled: 1
+    path: Assets/Scenes/Retry.unity
+    guid: ebb35226106ce9a43ba70c70cdacd4c0
   m_configObjects: {}

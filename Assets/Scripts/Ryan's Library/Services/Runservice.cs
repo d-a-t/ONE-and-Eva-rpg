@@ -268,7 +268,12 @@ public sealed class Runservice : Singleton {
 
 		Maid.GiveTask(_HeartbeatFuncList);
 		Maid.GiveTask(_RenderStepFuncList);
-
+		Maid.GiveTask(_FixedUpdateFuncList);
+		Maid.GiveTask(_UpdateFuncList);
+		Maid.GiveTask(_LateUpdateFuncList);
+		Maid.GiveTask(delegate {
+			Debug.Log("Being destroyed");
+		});
 		Camera.onPreRender += Runservice.BeforeCameraRender;
 
 		//Cleaning up binded Renderstep

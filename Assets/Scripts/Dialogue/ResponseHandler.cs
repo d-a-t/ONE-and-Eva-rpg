@@ -21,7 +21,7 @@ public class ResponseHandler : MonoBehaviour
 
     private void Start()
     {
-        dialogueUI = GetComponent<DialogueUI>();
+		dialogueUI = GetComponent<DialogueUI>();
         typeWriterEffect = GetComponent<TypeWriterEffect>();
     }
 
@@ -30,17 +30,29 @@ public class ResponseHandler : MonoBehaviour
         beatIndex = BI;
         float responseBoxHeight = 0;
 
-        foreach (Response response in responses)
+        if (beatIndex != 0 && beatIndex == PlayerPrefs.GetInt("beatIndex", 0) && PlayerPrefs.GetInt("BeatLevel", 0) == 1) {
+			ClearThroughResponse(DialogueSave.Singleton.PickedThis);
+            PlayerPrefs.SetInt("beatIndex", 0);
+
+			return;
+		}
+
+		int index = 0;
+		foreach (Response response in responses)
         {
             GameObject responseButton = Instantiate(responseButtonTemplate.gameObject, responseContainer);
             responseButton.gameObject.SetActive(true);
             responseButton.GetComponent<TMP_Text>().text = response.responseText;
             responseButton.GetComponent<Button>().onClick.AddListener(call: () => OnPickedResponse(response));
+            responseButton.GetComponent<Button>().onClick.AddListener(call: () => {
+				DialogueSave.Singleton.PickedThis = response;
+			});
 
             tempResponseButtons.Add(responseButton);
 
-            responseBoxHeight += responseButtonTemplate.sizeDelta.y;
-        }
+			responseBoxHeight += responseButtonTemplate.sizeDelta.y;
+			index += 1;
+		}
 
         responseBox.sizeDelta = new Vector2(responseBox.sizeDelta.x, y: responseBoxHeight);
         responseBox.gameObject.SetActive(true);
@@ -56,16 +68,32 @@ public class ResponseHandler : MonoBehaviour
         }
         tempResponseButtons.Clear();
 
-        // add the points to the list for fuzzy logic
-        fuzzyLogic.AddToList(response.pointAmount);
-
-      //  PlayerPrefs.SetFloat("beatsIndex", )
-
-        if (response.loadScene != null) {
-			SceneManager.LoadScene(response.loadScene);
+        //Loading scene
+        if (response?.loadScene?.Length > 0) {
+			if (PlayerPrefs.GetInt("beatIndex", 0) != 0) {
+				PlayerPrefs.SetInt("beatIndex", beatIndex);
+				SceneManager.LoadScene(response.loadScene);
+			}
 		}
 
+        // add the points to the list for fuzzy logic
+        fuzzyLogic.AddToList(response.pointAmount);
+       
         StartCoroutine(routine: ResponseStepThrough(response.DialogueObject));
+    }
+
+    public void ClearThroughResponse(Response response) {
+        responseBox.gameObject.SetActive(false);
+
+		foreach (GameObject button in tempResponseButtons)
+        {
+            Destroy(button);
+        }
+        tempResponseButtons.Clear();
+
+        // add the points to the list for fuzzy logic
+        fuzzyLogic.AddToList(response.pointAmount);
+		StartCoroutine(routine: ResponseStepThrough(response.DialogueObject));
     }
 
     private IEnumerator ResponseStepThrough(DialogueObject[] dialogueObject)
