@@ -33,7 +33,7 @@ public class ResponseHandler : MonoBehaviour
         if (beatIndex != 0 && beatIndex == PlayerPrefs.GetInt("beatIndex", 0) && PlayerPrefs.GetInt("BeatLevel", 0) == 1) {
 			ClearThroughResponse(DialogueSave.Singleton.PickedThis);
             PlayerPrefs.SetInt("beatIndex", 0);
-
+			PlayerPrefs.SetInt("BeatLevel", 0);
 			return;
 		}
 
@@ -70,10 +70,8 @@ public class ResponseHandler : MonoBehaviour
 
         //Loading scene
         if (response?.loadScene?.Length > 0) {
-			if (PlayerPrefs.GetInt("beatIndex", 0) != 0) {
-				PlayerPrefs.SetInt("beatIndex", beatIndex);
-				SceneManager.LoadScene(response.loadScene);
-			}
+            PlayerPrefs.SetInt("beatIndex", beatIndex);
+            SceneManager.LoadScene(response.loadScene);
 		}
 
         // add the points to the list for fuzzy logic

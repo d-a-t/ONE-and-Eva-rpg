@@ -474,6 +474,7 @@ MonoBehaviour:
   - Dialogue: {fileID: 11400000, guid: f455de43b98ec034fb7e56a6ca6a1fa7, type: 2}
   - Dialogue: {fileID: 11400000, guid: f32bca81b2df2d94c9fa0004be219a03, type: 2}
   - Dialogue: {fileID: 11400000, guid: 7fb4d636d853e674597c869e794be343, type: 2}
+  - Dialogue: {fileID: 11400000, guid: 8fb2b5905764fb1478270e69dc48037a, type: 2}
   fuzzyLogic: {fileID: 1338447627}
   good_ending:
   - {fileID: 11400000, guid: 50d0e36d4cf690a43b93f4b74f838659, type: 2}

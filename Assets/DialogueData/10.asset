@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ca285fd2b8a604ca411257512b6b5c, type: 3}
+  m_Name: 10
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: 231bb739b751d724d9a189c3124642db, type: 2}
+  background: {fileID: 11400000, guid: 11a6661644094ac42a4f68be98e112cf, type: 2}
+  dialogue:
+  - 'Near the end, there''s a room filled with robots patroling about. '
+  - What should ONE do?
+  responses:
+  - responseText: Take them all down.
+    dialogueObject:
+    - {fileID: 11400000, guid: 826805ec25dc36f4ba12f3e8b1dfc61d, type: 2}
+    pointAmount: 0
+    loadScene: TilemapTwo
+  - responseText: Try to sneak past.
+    dialogueObject:
+    - {fileID: 11400000, guid: 09dbd4abc1b060c4b990a983295da22b, type: 2}
+    pointAmount: 50
+    loadScene: 

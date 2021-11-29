@@ -11,8 +11,12 @@ public class LoadSceneOnDeath : MonoBehaviour
 		parent = gameObject.GetComponent<Character>();
 		parent.Health.Connect((float val) => {
 			if (val <= 0) {
-				SceneManager.LoadScene(SceneLoadOnDeath);
-				PlayerPrefs.SetInt("BeatLevel", 1);
+				if (GameObject.FindObjectsOfType<NPCAgent>().Length == 1) {
+					SceneManager.LoadScene(SceneLoadOnDeath);
+					PlayerPrefs.SetInt("BeatLevel", 1);
+
+					return false;
+				}
 			}
 			return true;
 		});
