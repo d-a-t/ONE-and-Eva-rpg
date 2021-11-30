@@ -36,12 +36,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Editor\SerializePropertyAttributeDrawer.cs" />
-     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Editor\DictionaryDrawer.cs" />
-     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Editor\ComponentGroup.cs" />
-     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Editor\VariableDrawer.cs" />
-     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Editor\ReadOnlyInspector.cs" />
-     <Compile Include="Assets\Scripts\Ryan&apos;s Library\Editor\NestablePropertyDrawer.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Ryan&apos;s Library\Editor\SerializePropertyAttributeDrawer.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Ryan&apos;s Library\Editor\DictionaryDrawer.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Ryan&apos;s Library\Editor\ComponentGroup.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Ryan&apos;s Library\Editor\VariableDrawer.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Ryan&apos;s Library\Editor\ReadOnlyInspector.cs" />
+     <Compile Include="Assets\Scenes\Scripts\Ryan&apos;s Library\Editor\NestablePropertyDrawer.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Program Files/Unity/2021.1.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

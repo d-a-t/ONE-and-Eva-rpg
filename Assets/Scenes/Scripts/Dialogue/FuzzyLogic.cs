@@ -29,7 +29,7 @@ public class FuzzyLogic : MonoBehaviour
             triggeredEventsTotal = triggeredEventsTotal + eventValue;
         }
 
-        triggeredAverage = triggeredEventsTotal / triggerEvents.Count;
+        triggeredAverage = (triggeredEventsTotal / triggerEvents.Count) * .01F;
         float good_ending = good.Evaluate(triggeredAverage);
         float bad_ending = this.bad.Evaluate(triggeredAverage);
 

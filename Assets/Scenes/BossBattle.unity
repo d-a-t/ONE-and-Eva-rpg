@@ -1687,7 +1687,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &452610144
 GameObject:
@@ -3592,7 +3592,7 @@ RectTransform:
   - {fileID: 836412639}
   - {fileID: 1107424980}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -25763,7 +25763,7 @@ MonoBehaviour:
   RPM: 400
   Speed: 60
   BulletType: 1
-  Owner: {fileID: 0}
+  Owner: {fileID: 9064706667322557008}
   Damage: 1
   Firepoint: {fileID: 1571524990}
 --- !u!4 &1695924443
@@ -25773,14 +25773,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695924441}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.28, y: 0.018, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1736487585}
   - {fileID: 1571524990}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 9064706667322557002}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1698377468
 GameObject:
@@ -26760,6 +26760,7 @@ MonoBehaviour:
     _Value: 0
     Locked: 0
   PlayerCharacter: {fileID: 9064706667322557008}
+  SceneOnDeath: GameOver
   TotalScore: 0
 --- !u!1 &1816151731
 GameObject:
@@ -27055,7 +27056,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1891140159
 GameObject:
@@ -27381,7 +27382,7 @@ Transform:
   - {fileID: 1065601009}
   - {fileID: 1272531482}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
 --- !u!1 &2008865169
 GameObject:
@@ -27829,7 +27830,7 @@ Transform:
   m_Children:
   - {fileID: 337740280}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1180698661643503575
 GameObject:
@@ -28036,8 +28037,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9064706665915036521}
+  - {fileID: 1695924443}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &9064706667322557004
 Rigidbody2D:
