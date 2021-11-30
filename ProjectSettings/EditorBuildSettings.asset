@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TilemapTwo.unity
     guid: 7fa7016c0d532d047bbfbadb90017cfc
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 3a4b9d6d48a9c114f9dabcbf72ef7a98
   m_configObjects: {}
